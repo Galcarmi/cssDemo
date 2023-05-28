@@ -25,9 +25,9 @@ module.exports = {
                 loader: 'postcss-loader', // Run postcss actions
                 options: {
                   postcssOptions: {
-                    // plugins: [
-                    //   require('./postCssPlugin.js')
-                    // ]
+                    plugins: [
+                      require('./postCssPlugin.js')
+                    ]
                   }
                 },
               }
@@ -48,4 +48,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'], // Resolve both .js and .jsx files
   },
+  target: 'webworker'
 };
