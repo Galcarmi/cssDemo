@@ -12,7 +12,7 @@ module.exports = (options) => {
         return selector.startsWith(':local(');
     }
 
-    const isCssClassNotValid = (selector) => {
+    const isCssSelectorNotValid = (selector) => {
         debugger
         const trimmedSelector = selector.trim();
 
@@ -29,7 +29,7 @@ module.exports = (options) => {
     const indexesToRemove = [];
 
     for( let i = 0; i < options.nodes.length; i++ ) {
-        if(isCssClassNotValid(options.nodes[i].selector)) {
+        if(isCssSelectorNotValid(options.nodes[i].selector)) {
             indexesToRemove.push(i);
         }
     }
