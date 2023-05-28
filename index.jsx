@@ -5,7 +5,10 @@ import styles from './styles.scss';
 export const Index = () => {
     return (
         <div>
-        <h1 className ={styles.someClass}>Index</h1>
+        <h1 className ={styles.someClass}>Index
+            <div className='affected'>should be affected</div>
+            <div className={'notAffected'}>should not be affected</div>
+        </h1>
         </div>
     );
 }
