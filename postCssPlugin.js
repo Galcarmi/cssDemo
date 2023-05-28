@@ -5,11 +5,11 @@ module.exports = (options) => {
     }
 
     const isCssClassStartsWithGlobal = (selector) => {
-        return selector.startsWith(':global(');
+        return selector.startsWith(':global');
     }
 
     const isCssClassStartsWithLocal = (selector) => {
-        return selector.startsWith(':local(');
+        return selector.startsWith(':local');
     }
 
     const isCssSelectorNotValid = (selector) => {
