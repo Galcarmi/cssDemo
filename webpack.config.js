@@ -5,6 +5,9 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'), // Output directory
     filename: 'bundle.js', // Output bundle file name
+    library: {
+      type: 'umd'
+    }
   },
   mode: 'development',
   module: {
@@ -48,5 +51,5 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'], // Resolve both .js and .jsx files
   },
-  target: 'webworker'
+  target: 'webworker',
 };
