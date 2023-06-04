@@ -1,4 +1,5 @@
 const path = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: './index.jsx', // Entry point of your application
@@ -13,27 +14,32 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /\.scss$/, // Match .css files
+            test: /\.s?css$/, // Match .css files
             use: [
-              'style-loader', // Inject styles into the DOM
               {
-                loader: 'css-loader', // Handle CSS modules
+                loader: MiniCssExtractPlugin.loader
+            },
+            {
+                loader: 'css-loader',
                 options: {
                   modules: {
                     localIdentName: '[name]__[local]--[hash:base64:5]', // CSS module class name format
                   },
                 },
-              },
-              {
-                loader: 'postcss-loader', // Run postcss actions
+            },
+            {
+                loader: 'postcss-loader',
                 options: {
                   postcssOptions: {
                     plugins: [
                       require('./postCssPlugin.js')
                     ]
                   }
-                },
-              }
+                }
+            },
+            {
+                loader: 'sass-loader'
+            },
             ],
           },
       {
@@ -48,6 +54,7 @@ module.exports = {
       }
     ],
   },
+  plugins: [new MiniCssExtractPlugin()],
   resolve: {
     extensions: ['.js', '.jsx'], // Resolve both .js and .jsx files
   },
