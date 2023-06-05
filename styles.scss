@@ -2,17 +2,12 @@ body{
     background-color: blue;
 }
 
-:global( .notAffected ){
-        color: green;
-        font-size: 10px;
+.someClass {
+    color: red;
+    font-size: 60px;
 }
 
-.someClass {
-    :global(.affected){
-        color: gold;
-        font-size: 20px;
-    }
-    color: red;
+:global(.someGlobalClass){
+    color: gold;
     font-size: 20px;
 }
-

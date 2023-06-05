@@ -1,15 +1,19 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import styles from './styles.scss';
+import './styles.scss';
+import 'bootstrap/dist/css/bootstrap.css';
 
 export const Index = () => {
     return (
-        <div>
-        <h1 className ={styles.someClass}>Index
-            <div className='affected'>should be affected</div>
-            <div className={'notAffected'}>should not be affected</div>
-        </h1>
-        </div>
+        <>
+            <h1 className ={'text-warning'}>Bootstrap should not be affected</h1>
+            <div className="my-prefix">
+                <div>
+                <h1 className ={'someClass'}>Internal</h1>
+                <h1 className ={'text-warning'}>Bootstrap</h1>
+                </div>
+            </div>
+        </>
     );
 }
 

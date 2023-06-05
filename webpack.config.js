@@ -21,18 +21,25 @@ module.exports = {
             },
             {
                 loader: 'css-loader',
-                options: {
-                  modules: {
-                    localIdentName: '[name]__[local]--[hash:base64:5]', // CSS module class name format
-                  },
-                },
+                // options: {
+                //   modules: {
+                //     localIdentName: '[name]__[local]--[hash:base64:5]', // CSS module class name format
+                //   },
+                // },
             },
             {
                 loader: 'postcss-loader',
                 options: {
                   postcssOptions: {
                     plugins: [
-                      require('./postCssPlugin.js')
+                      require('postcss-prefix-selector')({
+                        prefix: '.my-prefix', // Replace with your desired prefix,
+                        exclude: ['var'],
+                      }),
+                      require('postcss-selector-replace')({
+                        before: [":root"],
+                        after: [""]
+                      }),
                     ]
                   }
                 }
